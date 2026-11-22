@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#09070f">
+  <title>MEME ARENA — арена мемов</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">M</span> MEME <b>ARENA</b></a>
+    <nav><a class="active" href="#arena">Арена</a><a href="#rating">Рейтинг</a><a href="#rules">Правила</a></nav>
+    <div class="account" id="accountArea"></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="pulse"></span> АРЕНА ОТКРЫТА</div>
+      <h1>СМЕШНО? <span>ДОКАЖИ.</span></h1>
+      <p>Публикуй мемы, собирай голоса и поднимайся на вершину арены.</p>
+      <div class="hero-actions"><a class="btn primary" href="#submit">＋ Опубликовать мем</a><a class="btn secondary" href="#arena">Смотреть баттлы ↓</a></div>
+      <div class="hero-stats"><div><strong id="memeCount">0</strong><small>МЕМОВ</small></div><div><strong id="voteCount">0</strong><small>ГОЛОСОВ</small></div><div><strong id="userCount">0</strong><small>УЧАСТНИКОВ</small></div></div>
+    </section>
+
+    <section class="section" id="arena">
+      <div class="section-head"><div><div class="eyebrow">ГЛАВНОЕ СРАЖЕНИЕ</div><h2>Мемы на арене</h2></div><select id="sortSelect" aria-label="Сортировка"><option value="new">Сначала новые</option><option value="top">Сначала популярные</option></select></div>
+      <div class="filters" id="filters"><button class="filter active" data-category="Все">Все</button><button class="filter" data-category="Жиза">Жиза</button><button class="filter" data-category="Игры">Игры</button><button class="filter" data-category="Школа">Школа</button><button class="filter" data-category="Абсурд">Абсурд</button></div>
+      <div class="meme-grid" id="memeGrid"></div>
+      <div class="empty hidden" id="emptyState">Пока здесь тихо. Стань первым, кто выйдет на арену!</div>
+    </section>
+
+    <section class="section submit-section" id="submit">
+      <div><div class="eyebrow">ТВОЙ ВЫХОД</div><h2>Запусти свой мем</h2><p class="muted">Добавь ссылку на картинку и придумай подпись. Публикация появится в общей ленте на этом устройстве.</p></div>
+      <form id="memeForm" class="panel form-panel">
+        <label>Подпись мема<input id="caption" maxlength="100" placeholder="Когда учитель сказал: самостоятельная..." required></label>
+        <label>Ссылка на картинку<input id="imageUrl" type="url" placeholder="https://example.com/meme.jpg" required></label>
+        <label>Категория<select id="category"><option>Жиза</option><option>Игры</option><option>Школа</option><option>Абсурд</option></select></label>
+        <button class="btn primary full" type="submit">Опубликовать на арене ↗</button>
+        <small class="form-note">Публикуй только изображения, на которые у тебя есть права, и не размещай личные данные.</small>
+      </form>
+    </section>
+
+    <section class="section" id="rating">
+      <div class="eyebrow">ЛИДЕРБОРД</div><h2>Зал славы</h2>
+      <div class="panel leaderboard" id="leaderboard"></div>
+    </section>
+
+    <section class="section rules" id="rules"><div class="eyebrow">FAIR PLAY</div><h2>Правила арены</h2><div class="rule-grid"><div class="panel"><b>01 / Уважение</b><p>Без травли, угроз и унижения других людей.</p></div><div class="panel"><b>02 / Без спама</b><p>Не публикуй одинаковые мемы и подозрительные ссылки.</p></div><div class="panel"><b>03 / Права авторов</b><p>Используй свои изображения или материалы с разрешением.</p></div></div></section>
+  </main>
+  <footer>MEME ARENA <span>Сделано для хорошего настроения.</span></footer>
+
+  <dialog id="authDialog">
+    <form method="dialog" class="dialog-inner" id="authForm">
+      <button class="close" value="cancel" aria-label="Закрыть">×</button>
+      <div class="brand"><span class="brand-mark">M</span> MEME <b>ARENA</b></div>
+      <h2>Войти на арену</h2>
+      <p class="muted">Демо-профиль для тестирования на этом устройстве.</p>
+      <label>Твой ник<input id="nickname" maxlength="18" minlength="2" placeholder="Например, MemeKing" required></label>
+      <button class="btn primary full" id="loginButton" value="login">Продолжить</button>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
